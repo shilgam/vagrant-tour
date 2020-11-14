@@ -6,6 +6,14 @@
 
 ## Usage
 
-1. Init the dir
+1. clone this repo
 
-        $ vagrant init hashicorp/bionic64
+1. cd into project's root dir
+
+1. initialize a new Vagrant environment
+
+        $ vagrant init
+
+1. start the vagrant environment
+
+        $ vagrant up
