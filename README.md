@@ -23,6 +23,10 @@
 
 1. interact with the machine and do whatever you want
 
+    1. Test the synced folder
+
+            vagrant@vagrant:~$ ls /vagrant/foo
+
 1. stop the machine that Vagrant is managing and remove all the resources created
 
         $ vagrant destroy
