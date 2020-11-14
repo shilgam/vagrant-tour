@@ -10,34 +10,53 @@
 
 1. cd into project's root dir
 
-1. initialize a new Vagrant environment
+1. setup VM environment
 
-        $ vagrant init
+    1. initialize a new Vagrant environment
 
-1. start the vagrant environment
+            $ vagrant init
 
-        $ vagrant up
+    1. start the vagrant environment
 
-1. interact with the machine
+            $ vagrant up
 
-    1. Load http://127.0.0.1:4567 in your browser where you will find a web page that is being served from the guest virtual machine.
+1. interact with the VM environment
+
+    1. load http://127.0.0.1:4567 in your browser where you will find a web page that is being served from the guest virtual machine.
 
     1. SSH into the machine
 
             $ vagrant ssh
 
-            # Test the synced folder
+            # test the synced folder
             vagrant@vagrant:~$ ls /vagrant/foo
 
-1. stop the machine that Vagrant is managing and remove all the resources created
+1. teardown VM environment
 
-        $ vagrant destroy
+    1. suspend the machine
 
-1. remove the box
+            $ vagrant suspend
 
-        # list your box files
-        $ vagrant box list
-        hashicorp/bionic64  (virtualbox, 1.0.282)
+        NOTE: it is intended for stopping and starting work quickly. The downside is that the virtual machine will still use disk space while suspended, and requires additional disk space to store the state of the virtual machine RAM.
 
-        # remove the box file
-        $ vagrant box remove hashicorp/bionic64
+    1. halt the machine
+
+            $ vagrant halt
+
+        Halting the virtual machine will gracefully shut down the guest operating system and power down the guest machine.
+        NOTE: A halted guest machine will take more time to start from a cold boot and will still consume disk space.
+
+    1. destroy the machine
+
+            $ vagrant destroy
+
+        It will remove all traces of the guest machine from your system, stop the guest machine, power it down, and reclaim its disk space and RAM.
+
+    1. remove the box
+
+            # list your box files
+            $ vagrant box list
+            hashicorp/bionic64  (virtualbox, 1.0.282)
+
+            # remove the box file
+            $ vagrant box remove hashicorp/bionic64
